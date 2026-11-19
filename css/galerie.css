@@ -1,0 +1,65 @@
+/* Youpa Textiles - galerie de photos + page d'administration */
+.photo{position:relative}
+.fl{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border:0;border-radius:50%;background:rgba(20,20,20,.65);color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
+.fl.g{left:8px}.fl.d{right:8px}
+.fl:hover{background:var(--rouge)}
+.cpt{position:absolute;bottom:8px;right:8px;background:rgba(20,20,20,.7);color:#fff;font-size:.8rem;padding:2px 10px;border-radius:999px}
+.badge{position:absolute;top:8px;left:8px;background:var(--rouge);color:#fff;font-weight:800;font-size:.85rem;padding:4px 12px;border-radius:999px}
+.vide{grid-column:1/-1;color:#666}
+
+/* Administration */
+.admin{max-width:760px;margin:0 auto;padding:24px 16px 60px;border-top:10px solid var(--rouge)}
+.admin h1{font-weight:900;margin:12px 0 4px}
+.admin h2{margin:32px 0 12px}
+.admin label{display:block;font-weight:700;margin:14px 0}
+.admin input:not([type=file]),.admin select{display:block;width:100%;margin-top:6px;padding:12px;font:inherit;border:2px solid var(--ligne);border-radius:10px;background:#fff;color:var(--noir)}
+.admin input[type=file]{display:block;margin-top:6px}
+.demo{background:#fff4d6;border:2px solid #e6b800;border-radius:10px;padding:10px 14px;font-size:.9rem;margin:12px 0}
+.lien{background:none;border:0;color:var(--rouge);text-decoration:underline;cursor:pointer;font:inherit;padding:0}
+.apercu{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+.apercu img{width:84px;height:84px;object-fit:cover;border-radius:8px;border:2px solid var(--ligne)}
+#msg{font-weight:700;min-height:1.5em}
+.ligne{display:flex;gap:12px;align-items:center;border:2px solid var(--ligne);border-radius:12px;padding:10px;margin-bottom:10px;flex-wrap:wrap}
+.ligne img,.ligne .sans{width:64px;height:64px;object-fit:cover;border-radius:8px;background:var(--gris);flex:0 0 auto}
+.ligne .info{flex:1 1 160px}
+.ligne .info span{display:block;color:#666;font-size:.9rem}
+.ligne button{border:2px solid var(--noir);background:#fff;border-radius:999px;padding:8px 14px;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer}
+.ligne button.sup{border-color:var(--rouge);color:var(--rouge)}
+/* Œil pour afficher le mot de passe */
+.champ-mdp{position:relative;display:block}
+.admin .champ-mdp input{padding-right:52px}
+.oeil{position:absolute;right:8px;top:calc(50% + 3px);transform:translateY(-50%);width:40px;height:40px;border:0;background:none;font-size:1.3rem;line-height:1;cursor:pointer;border-radius:8px}
+.oeil:hover{background:var(--gris)}
+/* ===== CORRECTIF TÉLÉPHONE : rien ne dépasse de l'écran ===== */
+html, body { max-width: 100%; overflow-x: clip; }
+#vitrine, .haut, main, footer { width: 100%; max-width: 100%; }
+
+/* Photos : elles ne doivent jamais agrandir la carte */
+.art, .art-b { min-width: 0; }
+.art-b { overflow-wrap: anywhere; }
+.photo { position: relative; overflow: hidden; display: grid; place-items: center; }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 640px) {
+  /* En-tête */
+  .haut-in { gap: 6px; padding: 8px 10px; }
+  .haut .logo { height: 38px; width: auto; max-width: 110px; object-fit: contain; }
+  .btn-retour { padding: 7px 10px; font-size: .8rem; }
+  .wa { padding: 7px 10px; font-size: .8rem; }
+
+  /* Catégories sur plusieurs lignes, centrées */
+  nav.cats { flex-wrap: wrap; justify-content: center; overflow-x: visible; padding: 8px 10px; gap: 6px; }
+  nav.cats button { font-size: .8rem; padding: 6px 12px; }
+
+  /* Titre et grille : 2 articles côte à côte */
+  main { padding: 14px 10px 28px; }
+  main h2 { font-size: 1.25rem; }
+  .grille { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .art-b { padding: 8px 10px 10px; gap: 2px; }
+  .art-b b { font-size: .85rem; }
+  .prix { font-size: .85rem; }
+  .art-b a { font-size: .78rem; padding-top: 4px; }
+  .fl { width: 30px; height: 30px; font-size: 1.2rem; }
+  .cpt { font-size: .7rem; padding: 1px 8px; }
+  .badge { font-size: .75rem; padding: 3px 10px; }
+}
